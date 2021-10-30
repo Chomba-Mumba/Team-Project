@@ -5,8 +5,27 @@
     <title>Log Fault</title>
      <link rel="stylesheet" href="style.css">  
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+     $(document).ready(function(){
+        $("a").hover(function(){
+            $(this).css("background-color","#821d52");
+        },
+        function(){
+            $(this).css("background-color","#d43f8d");
+        });
+    });
+    </script>
   </head>
   <body>
+  <div id="topBar">
+    <a style="margin-left: 10px;"id="total_med">Login Screen</a>
+    <a id="viewLogs">View Logs</a>
+    <a id="placeholder1">Placeholder</a>
+    <a id="placeholder2">Placeholder</a>
+    <a style="margin-left: 690px;" href=""> Sign Out</a>
+  </div>
+  <br>
     <div class="container">
       <header>Log Fault</header>
       <div class="progress-bar">
@@ -139,6 +158,6 @@
       </div>
     </div>
     <script src="script.js"></script>
-
+    <br>
   </body>
 </html>

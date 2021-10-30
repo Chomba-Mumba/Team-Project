@@ -6,12 +6,27 @@
   font-family: 'Poppins', sans-serif;
 }
 body{
-  display: flex;
+ /*display: flex; so the top bar can be addeed*/
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   overflow: hidden;
   background: url("bg.png"), -webkit-linear-gradient(bottom, #0250c5, #d43f8d);
+}
+#topBar{
+  /*background: url("bg.png"), -webkit-linear-gradient(bottom, #0250c5, #d43f8d);*/
+  background-color:#d43f8d;
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+a{
+  margin-top: 10px;
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 60px;
+  font-size: 15px;
+  color: white;
 }
 ::selection{
   color: #fff;
@@ -21,6 +36,8 @@ body{
 html { overflow-y: scroll; overflow-x:hidden; }
 
 .container{
+  margin-left: 530px;
+  /*added this margin to center the form*/
   width: 430px;
   background: #fff;
   text-align: center;
