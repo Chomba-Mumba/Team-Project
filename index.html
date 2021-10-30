@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Log Fault</title>
+     <link rel="stylesheet" href="style.css">  
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>Log Fault</header>
+      <div class="progress-bar">
+        <div class="step">
+          <p>Call Details </p>
+          <div class="bullet">
+            <span>1</span>
+          </div>
+          <div class="check fas fa-check"></div>
+        </div>
+        <div class="step">
+          <p> Equipment </p>
+          <div class="bullet">
+            <span>2</span>
+          </div>
+          <div class="check fas fa-check"></div>
+        </div>
+        <div class="step">
+          <p> Problem </p>
+          <div class="bullet">
+            <span>3</span>
+          </div>
+          <div class="check fas fa-check"></div>
+        </div>
+        <div class="step">
+          <p>Specialist</p>
+          <div class="bullet">
+            <span>4</span>
+          </div>
+          <div class="check fas fa-check"></div>
+        </div>
+      </div>
+      <div class="form-outer">
+        <form action="#">
+          <div class="page slide-page">
+            <div class="title">Call Details</div>
+            <div class="field">
+              <div class="label">Caller Name</div>
+              <input type="text">
+            </div>
+            <div class="field">
+              <div class="label">Operator Name</div>
+              <input type="text">
+            </div>
+            <div class="field">
+              <div class="label">Time of Call</div>
+              <input type="time">
+            </div>
+            <div class="field">
+              <button class="firstNext next">Next</button>
+            </div>
+          </div>
+
+          <div class="page">
+            <div class="title">Equipment Details:</div>
+            <div class="field">
+              <div class="label">Type of equipment</div>
+              <input type="text">
+            </div>
+            <div class="field">
+              <div class="label">Make of equipment</div>
+              <input type="text">
+            </div>
+            <div class="field">
+              <div class="label">Operating System/Software</div>
+              <input type="text">
+            </div>
+            <div class="field">
+              <div class="label">Serial Number</div>
+              <input type="text">
+            </div>
+            <div class="field btns">
+              <button class="prev-1 prev">Previous</button>
+              <button class="next-1 next">Next</button>
+            </div>
+          </div>
+
+          <div class="page">
+            <div class="title">Problem Details:</div>
+            <div class="field">
+              <div class="label">Problem Type</div>
+              <select>
+                <option>printer</option>
+                <option>laptop</option>
+                <option>monitor</option>
+              </select>
+            </div>
+            <div class="field">
+              <div class="label">Specific Problem Type</div>
+              <select>
+                <option>cartridges</option>
+                <option>dsiplay fault</option>
+                <option>not charging</option>
+              </select>
+            </div>
+            <div class="field">
+              <div class="label">Problem Priority</div>
+              <input type="text">
+            </div>
+            <div class="field">
+              <div class="label">Problem Description</div>
+              <input type="text area">
+            </div>
+            <div class="field btns">
+              <button class="prev-2 prev">Previous</button>
+              <button class="next-2 next">Next</button>
+            </div>
+          </div>
+
+          <div class="page">
+            <div class="title">Specialist Details:</div>
+            <div class="field">
+              <div class="label">Specialist Type</div>
+              <select>
+                <option>Desktops</option>
+                <option>Software</option>
+                <option>Printers</option>
+              </select>
+            </div>
+            <div class="field">
+              <div class="label">Specialist Name</div>
+              <input type="text">
+            </div>
+            <div class="field btns">
+              <button class="prev-3 prev">Previous</button>
+              <button class="submit">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="script.js"></script>
+
+  </body>
+</html>
