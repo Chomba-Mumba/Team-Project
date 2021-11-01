@@ -1,0 +1,98 @@
+<html>
+	<head>
+		<script>
+		
+		function submitChanges(){
+			var ticketNo = document.getElementById("ticketNo").value;
+			var lastUpdated = document.getElementById("lastUpdated").value;
+			var reqType = document.getElementById("reqType").value;
+			var reqDetail = document.getElementById("reqDetail").value;
+			var serialNo = document.getElementById("serialNo").value;
+			var equipmentType = document.getElementById("equipmentType").value;
+			var makeOfEquipment = document.getElementById("makeOfEquipment").value;
+			var latestNotes = document.getElementById("latestNotes").value;
+			var status = document.getElementById("status").value;
+			var priority = document.getElementById("priority").value;
+			var alertStage = document.getElementById("alertStage").value;
+		}
+		
+		</script>
+	</head>
+
+	<body>
+
+		<h1>My Tickets</h1>
+		<form action="actionpage.php" method="post">
+		<table border="1">
+			<!--Table Headings-->
+			<tr>
+				<th>Ticket No.</th>
+				<th>Last Updated</th>
+				<th>Request Type</th>
+				<th>Request Detail</th>
+				<th>Equipment Details</th>
+				<th>Latest Notes</th>
+				<th>Status</th>
+				<th>Priority</th>
+				<th>Alert Stage</th>
+			</tr>
+
+			<!--Table content-->
+			<tr>
+				<td><input type="text" name="ticketNo" id="ticketNo"></td>
+				<td><input type="text" name="lastUpdated" id="lastUpdated"></td>
+				<td><input type="text" name="reqType" id="reqType"></td>
+				<td><input type="text" name="reqDetail" id="reqDetail"></td>
+
+				<td>
+					<label for="serialNo">Serial Number</label>
+					<input type="text" name="serialNo" id="serialNo"><br>
+					<label for="equipmentType">Equipment Type</label>
+					<input type="text" name="equipmentType" id="equipmentType"><br>
+					<label for="makeOfEquipment">Make Of Equipment</label>
+					<select name="makeOfEquipment" id="makeOfEquipment">
+						<option value="make1">Make 1</option>
+						<option value="make2">Make 2</option>
+					</select>
+				</td>
+				<td><input type="text" name="latestNotes" id="latestNotes"></td>
+
+				<td>
+				<select name="status" id="status"><!--We will need php to save and update the details-->
+
+					<option value="pending">Pending</option>
+					<option value="assigned">Assigned</option>
+					<option value="resolved">Resolved</option>
+
+				</select>
+				</td>
+
+				<td>
+				<select name="priority" id="priority">
+					<option value="low">Low</option>
+					<option value="medium">Medium</option>
+					<option value="high">High</option>
+				</select>
+				</td>	
+
+				<td>
+				<select name="alertStage" id="alertStage">
+					<option value="not_completed">Not Completed</option>
+					<option value="assigned">Assigned</option>
+					<option value="completed">Completed</option>
+				</select>
+				</td>
+			</tr>
+		</table>
+		</form>
+		<br>
+		<!--<button type="button" name="submit" id="submit" onclick="submitChanges()">Submit Changes</button>-->
+		<input type="submit" value="Submit Changes">
+		<button type="button" name="cancel" id="cancel">Cancel Changes</button>
+	</body>
+	</html>
+	
+	
+	
+	
+	

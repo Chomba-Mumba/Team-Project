@@ -1,0 +1,84 @@
+<html>
+	<head>
+		<script>
+		</script>
+	</head>
+
+	<body>
+
+		<h1>Group Tickets</h1>
+		<table border="1">
+			<!--Table Headings-->
+			<tr>
+				<th>Ticket No.</th>
+				<th>Last Updated</th>
+				<th>Operators/Specialists Assigned</th>
+				<th>Request Type</th>
+				<th>Request Detail</th>
+				<th>Equipment Details</th>
+				<th>Latest Notes</th>
+				<th>Status</th>
+				<th>Priority</th>
+				<th>Alert Stage</th>
+			</tr>
+
+			<!--Table content-->
+			<tr>
+				<td><input type="text" name="ticketNo" id="ticketNo"></td>
+				<td><input type="text" name="lastUpdated" id="lastUpdated"></td>
+
+				<td>
+					<select name="specialistAssigned" id="specialistAssigned">
+						<option value="specialist1">Specialist 1</option>
+						<option value="specialist2">Specialist 2</option>
+						<option value="specialist3">Specialist 3</option>
+					</select>
+				</td>
+				<td><input type="text" name="reqType" id="reqType"></td>
+				<td><input type="text" name="reqDetail" id="reqDetail"></td>
+
+				<td>
+					<label for="serialNo">Serial Number</label>
+					<input type="text" name="serialNo" id="serialNo">
+					<label for="equipmentType">Equipment Type</label>
+					<input type="text" name="equipmentType" id="equipmentType">
+					<label for="makeOfEquipment">Make Of Equipment</label>
+					<select name="makeOfEquipment" id="makeOfEquipment">
+						<option value="make1">Make 1</option>
+						<option value="make2">Make 2</option>
+					</select>
+				</td>
+				<td><input type="text" name="latestNotes" id="latestNotes"></td>
+
+				<td>
+				<select name="status" id="status"><!--We will need php to save and update the details-->
+
+					<option value="pending">Pending</option>
+					<option value="assigned">Assigned</option>
+					<option value="resolved">Resolved</option>
+
+				</select>
+				</td>
+
+				<td>
+				<select name="priority" id="priority">
+					<option value="low">Low</option>
+					<option value="medium">Medium</option>
+					<option value="high">High</option>
+				</select>
+				</td>	
+
+				<td>
+				<select name="alertStage" id="alertStage">
+					<option value="not_completed">Not Completed</option>
+					<option value="assigned">Assigned</option>
+					<option value="completed">Completed</option>
+				</select>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<button type="button" name="submit" id="submit">Submit Changes</button>
+		<button type="button" name="cancel" id="cancel">Cancel Changes</button>
+	</body>
+	</html>
