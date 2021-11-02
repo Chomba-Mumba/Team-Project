@@ -1,7 +1,45 @@
 <html>
 	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script>
+		$(document).ready(function(){
+			$("#ticketNo").val("1");
+			$("#lastUpdated").val("02/11/2021");
+			$("#reqType").val("Printer Hardware");
+			$("#reqDetail").val("Printer in top floor office keeps jamming paper");
+			$("#serialNo").val("0198723843");
+			$("#equipmentType").val("Printer/Copier");
+			$("#makeOfEquipment").val("hp");
+			$("#latestNotes").val("Printer works fine with A3 paper");
+			$("#status").val("assigned");
+			$("#priority").val("medium");
+			$("#alertStage").val("assigned");
 		
+			$("#ticketNo2").val("2");
+			$("#lastUpdated2").val("14/10/2021");
+			$("#reqType2").val("Design Software");
+			$("#reqDetail2").val("Licensing issues");
+			$("#serialNo2").val("RM2_30");
+			$("#equipmentType2").val("PC");
+			$("#makeOfEquipment2").val("intel");
+			$("#latestNotes2").val("Error Message displays \"Error: licence is expired, please contact your system administrator\"");
+			$("#status2").val("pending");
+			$("#priority2").val("high");
+			$("#alertStage2").val("not_completed");
+
+			$("#ticketNo3").val("3");
+			$("#lastUpdated3").val("07/11/2021");
+			$("#reqType3").val("Monitor Hardware");
+			$("#reqDetail3").val("Monitor will cut out for around 3 seconds then return to operation at random intervals");
+			$("#serialNo3").val("389103");
+			$("#equipmentType3").val("Monitor");
+			$("#makeOfEquipment3").val("asus");
+			$("#latestNotes3").val("Replacement monitor issued to caller");
+			$("#status3").val("pending");
+			$("#priority3").val("low");
+			$("#alertStage3").val("not_completed");
+		})
+
 		function submitChanges(){
 			var ticketNo = document.getElementById("ticketNo").value;
 			var lastUpdated = document.getElementById("lastUpdated").value;
@@ -19,11 +57,13 @@
 		</script>
 	</head>
 
-	<body>
+	<body onload=loadData()>
 
 		<h1>My Tickets</h1>
-		<form action="actionpage.php" method="post">
+		<form action="actionPage.php" method="get">
 		<table border="1">
+		
+
 			<!--Table Headings-->
 			<tr>
 				<th>Ticket No.</th>
@@ -36,13 +76,13 @@
 				<th>Priority</th>
 				<th>Alert Stage</th>
 			</tr>
-
+			
 			<!--Table content-->
 			<tr>
 				<td><input type="text" name="ticketNo" id="ticketNo"></td>
 				<td><input type="text" name="lastUpdated" id="lastUpdated"></td>
 				<td><input type="text" name="reqType" id="reqType"></td>
-				<td><input type="text" name="reqDetail" id="reqDetail"></td>
+				<td><textarea name="reqDetail" id="reqDetail" rows="5"></textarea></td>
 
 				<td>
 					<label for="serialNo">Serial Number</label>
@@ -51,11 +91,14 @@
 					<input type="text" name="equipmentType" id="equipmentType"><br>
 					<label for="makeOfEquipment">Make Of Equipment</label>
 					<select name="makeOfEquipment" id="makeOfEquipment">
-						<option value="make1">Make 1</option>
-						<option value="make2">Make 2</option>
+						<option value="notApplicable">N/A</option>
+						<option value="hp">HP</option>
+						<option value="dell">Dell</option>
+						<option value="intel">Intel</option>
+						<option value="asus">Asus</option>
 					</select>
 				</td>
-				<td><input type="text" name="latestNotes" id="latestNotes"></td>
+				<td><textarea name="latestNotes" id="latestNotes" rows="5"></textarea></td>
 
 				<td>
 				<select name="status" id="status"><!--We will need php to save and update the details-->
@@ -83,16 +126,109 @@
 				</select>
 				</td>
 			</tr>
-		</table>
 		</form>
 		<br>
+					<!--Table content-->
+					<tr>
+						<td><input type="text" name="ticketNo" id="ticketNo2"></td>
+						<td><input type="text" name="lastUpdated" id="lastUpdated2"></td>
+						<td><input type="text" name="reqType" id="reqType2"></td>
+						<td><textarea name="reqDetail" id="reqDetail2" rows="5"></textarea></td>
+		
+						<td>
+							<label for="serialNo">Serial Number</label>
+							<input type="text" name="serialNo" id="serialNo2"><br>
+							<label for="equipmentType">Equipment Type</label>
+							<input type="text" name="equipmentType" id="equipmentType2"><br>
+							<label for="makeOfEquipment">Make Of Equipment</label>
+							<select name="makeOfEquipment" id="makeOfEquipment2">
+								<option value="notApplicable">N/A</option>
+								<option value="hp">HP</option>
+								<option value="dell">Dell</option>
+								<option value="intel">Intel</option>
+								<option value="asus">Asus</option>
+							</select>
+						</td>
+						<td><textarea name="latestNotes" id="latestNotes2" rows="5"></textarea></td>
+		
+						<td>
+						<select name="status" id="status2"><!--We will need php to save and update the details-->
+		
+							<option value="pending">Pending</option>
+							<option value="assigned">Assigned</option>
+							<option value="resolved">Resolved</option>
+		
+						</select>
+						</td>
+		
+						<td>
+						<select name="priority" id="priority2">
+							<option value="low">Low</option>
+							<option value="medium">Medium</option>
+							<option value="high">High</option>
+						</select>
+						</td>	
+		
+						<td>
+						<select name="alertStage" id="alertStage2">
+							<option value="not_completed">Not Completed</option>
+							<option value="assigned">Assigned</option>
+							<option value="completed">Completed</option>
+						</select>
+						</td>
+					</tr>
+					<!--Table content-->
+			<tr>
+				<td><input type="text" name="ticketNo" id="ticketNo3"></td>
+				<td><input type="text" name="lastUpdated" id="lastUpdated3"></td>
+				<td><input type="text" name="reqType" id="reqType3"></td>
+				<td><textarea name="reqDetail" id="reqDetail3" rows="5"></textarea></td>
+
+				<td>
+					<label for="serialNo">Serial Number</label>
+					<input type="text" name="serialNo" id="serialNo3"><br>
+					<label for="equipmentType">Equipment Type</label>
+					<input type="text" name="equipmentType" id="equipmentType3"><br>
+					<label for="makeOfEquipment">Make Of Equipment</label>
+					<select name="makeOfEquipment" id="makeOfEquipment3">
+						<option value="notApplicable">N/A</option>
+						<option value="hp">HP</option>
+						<option value="dell">Dell</option>
+						<option value="intel">Intel</option>
+						<option value="asus">Asus</option>
+					</select>
+				</td>
+				<td><textarea name="latestNotes" id="latestNotes3" rows="5"></textarea></td>
+
+				<td>
+				<select name="status" id="status3"><!--We will need php to save and update the details-->
+
+					<option value="pending">Pending</option>
+					<option value="assigned">Assigned</option>
+					<option value="resolved">Resolved</option>
+
+				</select>
+				</td>
+
+				<td>
+				<select name="priority" id="priority3">
+					<option value="low">Low</option>
+					<option value="medium">Medium</option>
+					<option value="high">High</option>
+				</select>
+				</td>	
+
+				<td>
+				<select name="alertStage" id="alertStage3">
+					<option value="not_completed">Not Completed</option>
+					<option value="assigned">Assigned</option>
+					<option value="completed">Completed</option>
+				</select>
+				</td>
+			</tr>
+		</table>
 		<!--<button type="button" name="submit" id="submit" onclick="submitChanges()">Submit Changes</button>-->
 		<input type="submit" value="Submit Changes">
 		<button type="button" name="cancel" id="cancel">Cancel Changes</button>
 	</body>
-	</html>
-	
-	
-	
-	
-	
+</html>
