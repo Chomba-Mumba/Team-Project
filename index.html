@@ -14,13 +14,21 @@
         function(){
             $(this).css("background-color","#d43f8d");
         });
+        $("#problemType").on('change', function(){
+          var problemType1 = $("#problemType").val();
+          $.post('assigningSpecialist.php',{ProblemType: problemType1}, function(response){
+            $("#specialist").append(response);
+
+          })
+        });
     });
+
     </script>
   </head>
   <body>
   <div id="topBar">
     <a style="margin-left: 10px;"id="total_med">Login Screen</a>
-    <a id="viewLogs">View Logs</a>
+    <a id="viewLogs" href="my tickets.html">View Logs</a>
     <a id="placeholder1">Placeholder</a>
     <a id="placeholder2">Placeholder</a>
     <a style="margin-left: 690px;" href=""> Sign Out</a>
@@ -139,15 +147,19 @@
             <div class="title">Specialist Details:</div>
             <div class="field">
               <div class="label">Specialist Type</div>
-              <select>
-                <option>Desktops</option>
+              <select id="problemType" required>
+                <option value="Default" selected>Select</option>
+                <option>Printer</option>
+                <option>Laptop</option>
                 <option>Software</option>
-                <option>Printers</option>
+                <option>Server</option>
               </select>
             </div>
-            <div class="field">
+            <div class="field" >
               <div class="label">Specialist Name</div>
               <input type="text">
+            </div>
+            <div id="specialist" style="text-align: left;">
             </div>
             <div class="field btns">
               <button class="prev-3 prev">Previous</button>

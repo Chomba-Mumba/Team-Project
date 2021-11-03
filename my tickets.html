@@ -1,7 +1,11 @@
 <html>
 	<head>
+	
+	 	<link rel="stylesheet" href="style.css"> 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 		<script>
+
 		$(document).ready(function(){
 			$("#ticketNo").val("1");
 			$("#lastUpdated").val("02/11/2021");
@@ -57,8 +61,14 @@
 		</script>
 	</head>
 
-	<body onload=loadData()>
-
+	<body>
+		  <div id="topBar">
+			<a style="margin-left: 10px;"id="total_med">Login Screen</a>
+			<a id="viewLogs" href="index.html">Log Fault</a>
+			<a id="placeholder1">Placeholder</a>
+			<a id="placeholder2">Placeholder</a>
+			<a style="margin-left: 690px;" href=""> Sign Out</a>
+		</div>
 		<h1>My Tickets</h1>
 		<form action="actionPage.php" method="get">
 		<table border="1">
@@ -229,6 +239,13 @@
 		</table>
 		<!--<button type="button" name="submit" id="submit" onclick="submitChanges()">Submit Changes</button>-->
 		<input type="submit" value="Submit Changes">
-		<button type="button" name="cancel" id="cancel">Cancel Changes</button>
+		<button type="button" name="cancel" id="cancel" style="  width: 100%;
+  border: none;
+  background: #d33f8d;
+  color: #fff;
+  cursor: pointer;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.5s ease;">Cancel Changes</button>
 	</body>
 </html>
