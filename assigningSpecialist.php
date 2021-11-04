@@ -62,6 +62,6 @@ foreach( $specialistNames as $name){
 echo "Recommended Specialist: ". $recommended;
 ?> 
 
-<!--changes-->
+
 
 </html>
