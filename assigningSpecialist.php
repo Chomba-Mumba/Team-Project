@@ -42,13 +42,28 @@ $queuedTasks = [
  
 ];
 
+$extraSpecialisms = [
+	'specialist1'=> 'Server',
+	'specialist2'=> 'Laptop',
+	'specialist3'=> 'N/A',
+	'specialist4'=> 'N/A',
+	'specialist5'=> 'N/A',
+	'specialist6'=> 'N/A',
+	'specialist7'=> 'N/A',
+	'specialist8'=> 'N/A',
+	'specialist9'=> 'Printer',
+	'specialist10'=> 'Printer',
+	'specialist11'=> 'Software',
+	'specialist12'=> 'Laptop', 
+];
+
 //find appropriate specialists
 
 $specialistNames = array_keys($specialists);
 $currentMin = INF;
 $recommended = " ";
 foreach( $specialistNames as $name){
-	if ($specialists[$name] == $problemType) {
+	if ($specialists[$name] == $problemType || $extraSpecialisms[$name] == $problemType) {
 		$selectedSpecialistTaskCounts[$name]= $queuedTasks[$name];
 		//echo $name ." -     -  ". $queuedTasks[$name] . "<br>";
 
