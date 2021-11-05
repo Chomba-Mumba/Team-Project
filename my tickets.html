@@ -8,7 +8,10 @@
 
 		$(document).ready(function(){
 			$("#ticketNo").val("1");
+			$("#initialDate").val("29/10/2021")
 			$("#lastUpdated").val("02/11/2021");
+			$("#dateCompleted").val("N/A");
+			$("#callerName").val("Wayne Thompson")
 			$("#reqType").val("Printer Hardware");
 			$("#reqDetail").val("Printer in top floor office keeps jamming paper");
 			$("#serialNo").val("0198723843");
@@ -20,7 +23,10 @@
 			$("#alertStage").val("assigned");
 		
 			$("#ticketNo2").val("2");
+			$("#initialDate2").val("02/10/2021");
 			$("#lastUpdated2").val("14/10/2021");
+			$("#dateCompleted2").val("N/A");
+			$("#callerName2").val("Joe Bloggs");
 			$("#reqType2").val("Design Software");
 			$("#reqDetail2").val("Licensing issues");
 			$("#serialNo2").val("RM2_30");
@@ -32,7 +38,10 @@
 			$("#alertStage2").val("not_completed");
 
 			$("#ticketNo3").val("3");
+			$("#initialDate3").val("06/11/2021");
 			$("#lastUpdated3").val("07/11/2021");
+			$("#dateCompleted3").val("N/A");
+			$("#callerName3").val("Tracey Jones")
 			$("#reqType3").val("Monitor Hardware");
 			$("#reqDetail3").val("Monitor will cut out for around 3 seconds then return to operation at random intervals");
 			$("#serialNo3").val("389103");
@@ -43,6 +52,54 @@
 			$("#priority3").val("low");
 			$("#alertStage3").val("not_completed");
 		})
+
+		function searchTickets(){
+			let searchTerm = $("#searchTerm").val();
+			let searchType = $("#searchType").val();
+			if (searchType == "Ticket Number"){
+				if($("#ticketNo").val() == searchTerm){
+					$("#row2").hide();
+					$("#row3").hide();
+				}else if($("#ticketNo2").val()==searchTerm){
+					$("#row1").hide();
+					$("#row3").hide();		
+				}else if($("#ticketNo3").val()==searchTerm){
+					$("#row1").hide();
+					$("#row2").hide();
+				}else{
+					alert("No ticket found");
+				}
+
+			}else if(searchType == "Request Type"){
+				if($("#reqType").val() == searchTerm){
+					$("#row2").hide();
+					$("#row3").hide();
+				}else if($("#reqType2").val() == searchTerm){
+					$("#row1").hide();
+					$("#row3").hide();
+				}else if($("#reqType3").val() == searchTerm){
+					$("#row1").hide();
+					$("#row2").hide();
+				}
+			}else if(searchType =="Serial Number"){
+				if($("#serialNo").val() == searchTerm){
+					$("#row2").hide();
+					$("#row3").hide();
+				}else if($("#serialNo2").val() == searchTerm){
+					$("#row1").hide();
+					$("#row3").hide();
+				}else if($("#serialNo3").val() == searchTerm){
+					$("#row1").hide();
+					$("#row2").hide();
+				}
+			}
+		}
+
+		function resetTickets(){
+			$("#row1").show();
+			$("#row2").show();
+			$("#row3").show();
+		}
 
 		function submitChanges(){
 			var ticketNo = document.getElementById("ticketNo").value;
@@ -62,22 +119,25 @@
 	</head>
 
 	<body>
-		  <div id="topBar">
-			<a style="margin-left: 10px;"id="total_med">Login Screen</a>
-			<a id="viewLogs" href="index.html">Log Fault</a>
-			<a id="placeholder1">Placeholder</a>
-			<a id="placeholder2">Placeholder</a>
-			<a style="margin-left: 690px;" href=""> Sign Out</a>
-		</div>
 		<h1>My Tickets</h1>
-		<form action="actionPage.php" method="get">
+		<!--<form action="actionPage.php" method="get">-->
+			<label for="searchTerm">Search Tickets</label>
+			<button id="searchBtn" onclick="searchTickets()">Search</button>
+			<button id="resetBtn" onclick="resetTickets()">Reset</button><br>
+			<select name ="searchType" id="searchType">
+				<option id="ticketNoSearch">Ticket Number</option>
+				<option id="reqTypeSearch">Request Type</option>
+				<option id="serialNumberSearch">Serial Number</option>
+			</select><br>
+			<input type="text" id="searchTerm"><br>
 		<table border="1">
 		
 
 			<!--Table Headings-->
 			<tr>
 				<th>Ticket No.</th>
-				<th>Last Updated</th>
+				<th>Dates</th>
+				<th>Caller Name</th>
 				<th>Request Type</th>
 				<th>Request Detail</th>
 				<th>Equipment Details</th>
@@ -85,21 +145,30 @@
 				<th>Status</th>
 				<th>Priority</th>
 				<th>Alert Stage</th>
+				<th>Solution</th>
 			</tr>
 			
 			<!--Table content-->
-			<tr>
+			<tr id="row1">
 				<td><input type="text" name="ticketNo" id="ticketNo"></td>
-				<td><input type="text" name="lastUpdated" id="lastUpdated"></td>
+				<td>
+					<label for="initialDate">Initial Date</label><br>
+					<input type="text" name="initialDate" id="initialDate"><br>
+					<label for="lastUpdated">Last Updated</label><br>
+					<input type="text" name="lastUpdated" id="lastUpdated"><br>
+					<label for="dateCompleted">Date Completed</label><br>
+					<input type="text" id="dateCompleted">
+				</td>
+				<td><input type="text" name="callerName" id="callerName"></td>
 				<td><input type="text" name="reqType" id="reqType"></td>
 				<td><textarea name="reqDetail" id="reqDetail" rows="5"></textarea></td>
 
 				<td>
-					<label for="serialNo">Serial Number</label>
+					<label for="serialNo">Serial Number</label><br>
 					<input type="text" name="serialNo" id="serialNo"><br>
-					<label for="equipmentType">Equipment Type</label>
+					<label for="equipmentType">Equipment Type</label><br>
 					<input type="text" name="equipmentType" id="equipmentType"><br>
-					<label for="makeOfEquipment">Make Of Equipment</label>
+					<label for="makeOfEquipment">Make Of Equipment</label><br>
 					<select name="makeOfEquipment" id="makeOfEquipment">
 						<option value="notApplicable">N/A</option>
 						<option value="hp">HP</option>
@@ -135,13 +204,22 @@
 					<option value="completed">Completed</option>
 				</select>
 				</td>
+				<td><textarea id="solution" rows="5"></textarea></td>
 			</tr>
 		</form>
 		<br>
 					<!--Table content-->
-					<tr>
+					<tr id="row2">
 						<td><input type="text" name="ticketNo" id="ticketNo2"></td>
-						<td><input type="text" name="lastUpdated" id="lastUpdated2"></td>
+						<td>
+							<label for="initialDate2">Initial Date</label><br>
+							<input type="text" name="initialDate2" id="initialDate2"><br>
+							<label for="lastUpdated">Last Updated</label><br>
+							<input type="text" name="lastUpdated" id="lastUpdated2"><br>
+							<label for="dateCompleted">Date Completed</label><br>
+							<input type="text" id="dateCompleted2">
+						</td>
+						<td><input type="text" name="callerName" id="callerName2"></td>
 						<td><input type="text" name="reqType" id="reqType2"></td>
 						<td><textarea name="reqDetail" id="reqDetail2" rows="5"></textarea></td>
 		
@@ -186,11 +264,22 @@
 							<option value="completed">Completed</option>
 						</select>
 						</td>
+						<td><textarea id="solution2" rows="5"></textarea></td>
+
 					</tr>
+
 					<!--Table content-->
-			<tr>
+			<tr id="row3">
 				<td><input type="text" name="ticketNo" id="ticketNo3"></td>
-				<td><input type="text" name="lastUpdated" id="lastUpdated3"></td>
+				<td>
+					<label for="initialDate3">Initial Date</label><br>
+					<input type="text" name="initialDate" id="initialDate3"><br>
+					<label for="lastUpdated">Last Updated</label><br>
+					<input type="text" name="lastUpdated" id="lastUpdated3"><br>
+					<label for="dateCompleted">Date Completed</label><br>
+					<input type="text" id="dateCompleted3">
+				</td>
+				<td><input type="text" name="callerName" id="callerName3"></td>
 				<td><input type="text" name="reqType" id="reqType3"></td>
 				<td><textarea name="reqDetail" id="reqDetail3" rows="5"></textarea></td>
 
@@ -235,6 +324,8 @@
 					<option value="completed">Completed</option>
 				</select>
 				</td>
+				<td><textarea id="solution3" rows="5"></textarea></td>
+
 			</tr>
 		</table>
 		<!--<button type="button" name="submit" id="submit" onclick="submitChanges()">Submit Changes</button>-->
