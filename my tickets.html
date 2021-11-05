@@ -1,11 +1,8 @@
 <html>
 	<head>
-	
-	 	<link rel="stylesheet" href="style.css"> 
+		<link rel="stylesheet" href="myTicket.css">  
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 		<script>
-
 		$(document).ready(function(){
 			$("#ticketNo").val("1");
 			$("#initialDate").val("29/10/2021")
@@ -51,7 +48,23 @@
 			$("#status3").val("pending");
 			$("#priority3").val("low");
 			$("#alertStage3").val("not_completed");
+
+		$("a").hover(function(){
+            $(this).css("background-color","#821d52");
+        },
+        function(){
+            $(this).css("background-color","#d43f8d");
+        });
+        $("#problemType").on('change', function(){
+          var problemType1 = $("#problemType").val();
+          $.post('assigningSpecialist.php',{ProblemType: problemType1}, function(response){
+            $("#specialist").append(response);
+
+          })
+        });
+
 		})
+
 
 		function searchTickets(){
 			let searchTerm = $("#searchTerm").val();
@@ -117,20 +130,28 @@
 		
 		</script>
 	</head>
-
+		<div id="topBar" style="text-align: left;">
+			<a style="margin-left: 10px;"id="total_med" href="group tickets.html">Group Tickets</a>
+			<a id="viewLogs" href="my tickets.html">View Logs</a>
+			<a id="placeholder1" href="consent.html">Consent</a>
+			<a id="placeholder2">Placeholder</a>
+			<a style="margin-left: 690px; float: right;" href=""> Sign Out</a>
+		</div>
 	<body>
-		<h1>My Tickets</h1>
+
+		<div id="inner Body" style="margin-left: 30px;">
+		<h1 style="text-align: center;">My Tickets</h1>
 		<!--<form action="actionPage.php" method="get">-->
-			<label for="searchTerm">Search Tickets</label>
+			<label for="searchTerm">Search Tickets</label><br><br>
 			<button id="searchBtn" onclick="searchTickets()">Search</button>
-			<button id="resetBtn" onclick="resetTickets()">Reset</button><br>
+			<button id="resetBtn" onclick="resetTickets()">Reset</button>
 			<select name ="searchType" id="searchType">
 				<option id="ticketNoSearch">Ticket Number</option>
 				<option id="reqTypeSearch">Request Type</option>
 				<option id="serialNumberSearch">Serial Number</option>
-			</select><br>
-			<input type="text" id="searchTerm"><br>
-		<table border="1">
+			</select>
+			<input style="text-align: center;"type="text" id="searchTerm"><br>
+		<table cellspacing="0">
 		
 
 			<!--Table Headings-->
@@ -150,7 +171,7 @@
 			
 			<!--Table content-->
 			<tr id="row1">
-				<td><input type="text" name="ticketNo" id="ticketNo"></td>
+				<td style="border-top-left-radius: 5px; border-bottom-left-radius: 5px;"><input type="text" name="ticketNo" id="ticketNo"></td>
 				<td>
 					<label for="initialDate">Initial Date</label><br>
 					<input type="text" name="initialDate" id="initialDate"><br>
@@ -204,13 +225,13 @@
 					<option value="completed">Completed</option>
 				</select>
 				</td>
-				<td><textarea id="solution" rows="5"></textarea></td>
+				<td style="border-top-left-radius: 5px; border-bottom-left-radius: 5px;"><textarea id="solution" rows="5"></textarea></td>
 			</tr>
 		</form>
 		<br>
 					<!--Table content-->
 					<tr id="row2">
-						<td><input type="text" name="ticketNo" id="ticketNo2"></td>
+						<td style="border-top-left-radius: 5px; border-bottom-left-radius: 5px;"><input type="text" name="ticketNo" id="ticketNo2"></td>
 						<td>
 							<label for="initialDate2">Initial Date</label><br>
 							<input type="text" name="initialDate2" id="initialDate2"><br>
@@ -264,13 +285,13 @@
 							<option value="completed">Completed</option>
 						</select>
 						</td>
-						<td><textarea id="solution2" rows="5"></textarea></td>
+						<td style="border-top-left-radius: 5px; border-bottom-left-radius: 5px;"><textarea id="solution2" rows="5"></textarea></td>
 
 					</tr>
 
 					<!--Table content-->
 			<tr id="row3">
-				<td><input type="text" name="ticketNo" id="ticketNo3"></td>
+				<td style="border-top-left-radius: 5px; border-bottom-left-radius: 5px;"><input type="text" name="ticketNo" id="ticketNo3"></td>
 				<td>
 					<label for="initialDate3">Initial Date</label><br>
 					<input type="text" name="initialDate" id="initialDate3"><br>
@@ -324,19 +345,15 @@
 					<option value="completed">Completed</option>
 				</select>
 				</td>
-				<td><textarea id="solution3" rows="5"></textarea></td>
+				<td style="border-top-left-radius: 5px; border-bottom-left-radius: 5px;"><textarea id="solution3" rows="5"></textarea></td>
 
 			</tr>
 		</table>
+
+
 		<!--<button type="button" name="submit" id="submit" onclick="submitChanges()">Submit Changes</button>-->
-		<input type="submit" value="Submit Changes">
-		<button type="button" name="cancel" id="cancel" style="  width: 100%;
-  border: none;
-  background: #d33f8d;
-  color: #fff;
-  cursor: pointer;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: 0.5s ease;">Cancel Changes</button>
+		<input id="submitChanges" class="buttons" type="submit" value="Submit Changes">
+		<button class="buttons"type="button" name="cancel" id="cancel">Cancel Changes</button>
+		</div>
 	</body>
 </html>
