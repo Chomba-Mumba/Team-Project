@@ -61,13 +61,7 @@
         function(){
             $(this).css("background-color","#d43f8d");
         });
-        $("#problemType").on('change', function(){
-          var problemType1 = $("#problemType").val();
-          $.post('assigningSpecialist.php',{ProblemType: problemType1}, function(response){
-            $("#specialist").append(response);
 
-          })
-        });
 
 		})
 
@@ -138,9 +132,9 @@
 	</head>
 		<div id="topBar" style="text-align: left;">
 			<a style="margin-left: 10px;"id="total_med" href="group tickets.html">Group Tickets</a>
-			<a id="viewLogs" href="my tickets.html">View Logs</a>
+			<a id="viewLogs" href="">View Logs</a>
 			<a id="placeholder1" href="consent.html">Consent</a>
-			<a id="placeholder2">Placeholder</a>
+			<a id="placeholder2" href="index.html">Log Fault</a>
 			<a style="margin-left: 690px; float: right;" href=""> Sign Out</a>
 		</div>
 	<body>

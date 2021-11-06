@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="myTicket.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script>
 			$(document).ready(function(){
@@ -27,105 +27,107 @@
 
 	<body>
 		<div id="topBar">
-			<a style="margin-left: 10px;"id="total_med">Login Screen</a>
-			<a id="viewLogs" href="index.html">Log Fault</a>
-			<a id="placeholder1">Placeholder</a>
-			<a id="placeholder2">Placeholder</a>
+			<a style="margin-left: 10px;"id="total_med" href="">Group Tickets</a>
+			<a id="viewLogs" href="my tickets.html">View Logs</a>
+			<a id="placeholder1" href="consent.html">Consent</a>
+			<a id="placeholder2" href="index.html">Log Fault</a>
 			<a style="margin-left: 690px;" href=""> Sign Out</a>
 		</div>
-		<h1>Group Tickets</h1>
-		<table border="1">
-			<!--Table Headings-->
-			<tr>
-				<th>Ticket No.</th>
-				<th>Dates</th>
-				<th>Caller Details</th>
-				<th>Operators/Specialists Assigned</th>
-				<th>Request Type</th>
-				<th>Request Detail</th>
-				<th>Equipment Details</th>
-				<th>Latest Notes</th>
-				<th>Status</th>
-				<th>Priority</th>
-				<th>Alert Stage</th>
-			</tr>
+		<div id="inner Body" style="margin-left: 30px; margin-right: 30px;">
+			<h1>Group Tickets</h1>
+			<table cellspacing="0">
+				<!--Table Headings-->
+				<tr>
+					<th>Ticket No.</th>
+					<th>Dates</th>
+					<th>Caller Details</th>
+					<th>Operators/Specialists Assigned</th>
+					<th>Request Type</th>
+					<th>Request Detail</th>
+					<th>Equipment Details</th>
+					<th>Latest Notes</th>
+					<th>Status</th>
+					<th>Priority</th>
+					<th>Alert Stage</th>
+				</tr>
 
-			<!--Table content-->
-			<tr>
-				<td><input type="text" name="ticketNo" id="ticketNo"></td>
-				<td>
-					<label for="initialDate">Initial Date</label><br>
-					<input type="text" name="initialDate" id="initialDate"><br>
-					<label for="lastUpdated">Last Updated</label><br>
-					<input type="text" name="lastUpdated" id="lastUpdated"><br>
-					<label for="dateCompleted">Date Completed</label><br>
-					<input type="text" id="dateCompleted">
-				</td>
-				<td>
-					<label for="callerName">Caller Name</label><br>
-					<input type="text" name="callerName" id="callerName"><br>
-					<label for="callerNumber">Caller Number</label>
-					<input type="text" name="callerNumber" id="callerNumber">
-				</td>
-				<td>
-					<select name="specialistAssigned" id="specialistAssigned">
-						<option value="specialist1">Specialist 1</option>
-						<option value="specialist2">Specialist 2</option>
-						<option value="specialist3">Specialist 3</option>
+				<!--Table content-->
+				<tr>
+					<td style="border-top-left-radius: 5px; border-bottom-left-radius: 5px;"><input type="text" name="ticketNo" id="ticketNo"></td>
+					<td>
+						<label for="initialDate">Initial Date</label><br>
+						<input type="text" name="initialDate" id="initialDate"><br>
+						<label for="lastUpdated">Last Updated</label><br>
+						<input type="text" name="lastUpdated" id="lastUpdated"><br>
+						<label for="dateCompleted">Date Completed</label><br>
+						<input type="text" id="dateCompleted">
+					</td>
+					<td>
+						<label for="callerName">Caller Name</label><br>
+						<input type="text" name="callerName" id="callerName"><br>
+						<label for="callerNumber">Caller Number</label>
+						<input type="text" name="callerNumber" id="callerNumber">
+					</td>
+					<td>
+						<select name="specialistAssigned" id="specialistAssigned">
+							<option value="specialist1">Specialist 1</option>
+							<option value="specialist2">Specialist 2</option>
+							<option value="specialist3">Specialist 3</option>
+						</select>
+						<select name="specialistAssigned2" id="specialistAssigned2">
+							<option value="specialist1">Specialist 1</option>
+							<option value="specialist2">Specialist 2</option>
+							<option value="specialist3">Specialist 3</option>
+						</select>
+					</td>
+					<td><input type="text" name="reqType" id="reqType"></td>
+					<td><textarea name="reqDetail" id="reqDetail" rows="5"></textarea></td>
+
+					<td>
+						<label for="serialNo">Serial Number</label>
+						<input type="text" name="serialNo" id="serialNo">
+						<label for="equipmentType">Equipment Type</label>
+						<input type="text" name="equipmentType" id="equipmentType">
+						<label for="makeOfEquipment">Make Of Equipment</label>
+						<select name="makeOfEquipment" id="makeOfEquipment">
+							<option value="hp">HP</option>
+							<option value="dell">Dell</option>
+							<option value="intel">Intel</option>
+							<option value="asus">Asus</option>
+						</select>
+					</td>
+					<td><textarea name="latestNotes" id="latestNotes" rows="5"></textarea></td>
+
+					<td>
+					<select name="status" id="status"><!--We will need php to save and update the details-->
+
+						<option value="pending">Pending</option>
+						<option value="assigned">Assigned</option>
+						<option value="resolved">Resolved</option>
+
 					</select>
-					<select name="specialistAssigned2" id="specialistAssigned2">
-						<option value="specialist1">Specialist 1</option>
-						<option value="specialist2">Specialist 2</option>
-						<option value="specialist3">Specialist 3</option>
+					</td>
+
+					<td>
+					<select name="priority" id="priority">
+						<option value="low">Low</option>
+						<option value="medium">Medium</option>
+						<option value="high">High</option>
 					</select>
-				</td>
-				<td><input type="text" name="reqType" id="reqType"></td>
-				<td><textarea name="reqDetail" id="reqDetail" rows="5"></textarea></td>
+					</td>	
 
-				<td>
-					<label for="serialNo">Serial Number</label>
-					<input type="text" name="serialNo" id="serialNo">
-					<label for="equipmentType">Equipment Type</label>
-					<input type="text" name="equipmentType" id="equipmentType">
-					<label for="makeOfEquipment">Make Of Equipment</label>
-					<select name="makeOfEquipment" id="makeOfEquipment">
-						<option value="hp">HP</option>
-						<option value="dell">Dell</option>
-						<option value="intel">Intel</option>
-						<option value="asus">Asus</option>
+					<td style="border-top-left-radius: 5px; border-bottom-left-radius: 5px;">
+					<select name="alertStage" id="alertStage">
+						<option value="not_completed">Not Completed</option>
+						<option value="assigned">Assigned</option>
+						<option value="completed">Completed</option>
 					</select>
-				</td>
-				<td><textarea name="latestNotes" id="latestNotes" rows="5"></textarea></td>
-
-				<td>
-				<select name="status" id="status"><!--We will need php to save and update the details-->
-
-					<option value="pending">Pending</option>
-					<option value="assigned">Assigned</option>
-					<option value="resolved">Resolved</option>
-
-				</select>
-				</td>
-
-				<td>
-				<select name="priority" id="priority">
-					<option value="low">Low</option>
-					<option value="medium">Medium</option>
-					<option value="high">High</option>
-				</select>
-				</td>	
-
-				<td>
-				<select name="alertStage" id="alertStage">
-					<option value="not_completed">Not Completed</option>
-					<option value="assigned">Assigned</option>
-					<option value="completed">Completed</option>
-				</select>
-				</td>
-			</tr>
-		</table>
-		<br>
-		<button type="button" name="submit" id="submit">Submit Changes</button>
-		<button type="button" name="cancel" id="cancel">Cancel Changes</button>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<button type="button" name="submit" id="submitChanges">Submit Changes</button>
+			<button type="button" name="cancel" id="cancel">Cancel Changes</button>
+		</div>
 	</body>
 	</html>
