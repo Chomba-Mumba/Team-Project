@@ -1,7 +1,27 @@
 <html>
 	<head>
-	<link rel="stylesheet" href="style.css"> 
+		<link rel="stylesheet" href="style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script>
+			$(document).ready(function(){
+				$("#ticketNo").val("1");
+				$("#initialDate").val("04/11/2021")
+				$("#lastUpdated").val("05/11/2021");
+				$("#dateCompleted").val("N/A")
+				$("#callerName").val("Bruce Wayne");
+				$("#callerNumber").val("07927154892");
+				$("#specialistAssigned").val("specialist1");
+				$("#specialistAssigned2").val("specialist3");
+				$("#reqType").val("Projector Hardware");
+				$("#reqDetail").val("Projector lens out of focus");
+				$("#serialNo").val("RM10_15");
+				$("#equipmentType").val("Projector");
+				$("#makeOfEqupiment").val("hp");
+				$("#latestNotes").val("Two specialists assigned for safety reasons \nThe projector is below a busy conference room, which is beleived to be the reason for the lens focus")
+				$("#status").val("assigned");
+				$("#priority").val("medium");
+				$("#alertStage").val("assigned")
+			})
 		</script>
 	</head>
 
@@ -18,7 +38,8 @@
 			<!--Table Headings-->
 			<tr>
 				<th>Ticket No.</th>
-				<th>Last Updated</th>
+				<th>Dates</th>
+				<th>Caller Details</th>
 				<th>Operators/Specialists Assigned</th>
 				<th>Request Type</th>
 				<th>Request Detail</th>
@@ -32,17 +53,34 @@
 			<!--Table content-->
 			<tr>
 				<td><input type="text" name="ticketNo" id="ticketNo"></td>
-				<td><input type="text" name="lastUpdated" id="lastUpdated"></td>
-
+				<td>
+					<label for="initialDate">Initial Date</label><br>
+					<input type="text" name="initialDate" id="initialDate"><br>
+					<label for="lastUpdated">Last Updated</label><br>
+					<input type="text" name="lastUpdated" id="lastUpdated"><br>
+					<label for="dateCompleted">Date Completed</label><br>
+					<input type="text" id="dateCompleted">
+				</td>
+				<td>
+					<label for="callerName">Caller Name</label><br>
+					<input type="text" name="callerName" id="callerName"><br>
+					<label for="callerNumber">Caller Number</label>
+					<input type="text" name="callerNumber" id="callerNumber">
+				</td>
 				<td>
 					<select name="specialistAssigned" id="specialistAssigned">
 						<option value="specialist1">Specialist 1</option>
 						<option value="specialist2">Specialist 2</option>
 						<option value="specialist3">Specialist 3</option>
 					</select>
+					<select name="specialistAssigned2" id="specialistAssigned2">
+						<option value="specialist1">Specialist 1</option>
+						<option value="specialist2">Specialist 2</option>
+						<option value="specialist3">Specialist 3</option>
+					</select>
 				</td>
 				<td><input type="text" name="reqType" id="reqType"></td>
-				<td><input type="text" name="reqDetail" id="reqDetail"></td>
+				<td><textarea name="reqDetail" id="reqDetail" rows="5"></textarea></td>
 
 				<td>
 					<label for="serialNo">Serial Number</label>
@@ -51,11 +89,13 @@
 					<input type="text" name="equipmentType" id="equipmentType">
 					<label for="makeOfEquipment">Make Of Equipment</label>
 					<select name="makeOfEquipment" id="makeOfEquipment">
-						<option value="make1">Make 1</option>
-						<option value="make2">Make 2</option>
+						<option value="hp">HP</option>
+						<option value="dell">Dell</option>
+						<option value="intel">Intel</option>
+						<option value="asus">Asus</option>
 					</select>
 				</td>
-				<td><input type="text" name="latestNotes" id="latestNotes"></td>
+				<td><textarea name="latestNotes" id="latestNotes" rows="5"></textarea></td>
 
 				<td>
 				<select name="status" id="status"><!--We will need php to save and update the details-->
