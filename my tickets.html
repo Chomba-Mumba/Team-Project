@@ -9,8 +9,10 @@
 			$("#lastUpdated").val("02/11/2021");
 			$("#dateCompleted").val("N/A");
 			$("#callerName").val("Wayne Thompson")
+			$("#callerNumber").val("01927445789")
 			$("#reqType").val("Printer Hardware");
 			$("#reqDetail").val("Printer in top floor office keeps jamming paper");
+			$("#specialistAssigned").val("specialist1");
 			$("#serialNo").val("0198723843");
 			$("#equipmentType").val("Printer/Copier");
 			$("#makeOfEquipment").val("hp");
@@ -24,8 +26,10 @@
 			$("#lastUpdated2").val("14/10/2021");
 			$("#dateCompleted2").val("N/A");
 			$("#callerName2").val("Joe Bloggs");
+			$("#callerNumber2").val("01927359741")
 			$("#reqType2").val("Design Software");
 			$("#reqDetail2").val("Licensing issues");
+			$("#specialistAssigned2").val("specialist2");
 			$("#serialNo2").val("RM2_30");
 			$("#equipmentType2").val("PC");
 			$("#makeOfEquipment2").val("intel");
@@ -38,9 +42,11 @@
 			$("#initialDate3").val("06/11/2021");
 			$("#lastUpdated3").val("07/11/2021");
 			$("#dateCompleted3").val("N/A");
-			$("#callerName3").val("Tracey Jones")
+			$("#callerName3").val("Tracey Jones");
+			$("#callerNumber3").val("01927897451");
 			$("#reqType3").val("Monitor Hardware");
 			$("#reqDetail3").val("Monitor will cut out for around 3 seconds then return to operation at random intervals");
+			$("#specialistAssigned3").val("specialist2");
 			$("#serialNo3").val("389103");
 			$("#equipmentType3").val("Monitor");
 			$("#makeOfEquipment3").val("asus");
@@ -158,9 +164,10 @@
 			<tr>
 				<th>Ticket No.</th>
 				<th>Dates</th>
-				<th>Caller Name</th>
+				<th>Caller Details</th>
 				<th>Request Type</th>
 				<th>Request Detail</th>
+				<th>Specialist Assigned</th>
 				<th>Equipment Details</th>
 				<th>Latest Notes</th>
 				<th>Status</th>
@@ -180,9 +187,21 @@
 					<label for="dateCompleted">Date Completed</label><br>
 					<input type="text" id="dateCompleted">
 				</td>
-				<td><input type="text" name="callerName" id="callerName"></td>
+				<td>
+					<label for="callerName">Caller Name</label><br>
+					<input type="text" name="callerName" id="callerName"><br>
+					<label for="callerNumber">Caller Number</label>
+					<input type="text" name="callerNumber" id="callerNumber">
+				</td>
 				<td><input type="text" name="reqType" id="reqType"></td>
 				<td><textarea name="reqDetail" id="reqDetail" rows="5"></textarea></td>
+				<td>
+					<select name="specialistAssigned" id="specialistAssigned">
+						<option value="specialist1">Specialist 1</option>
+						<option value="specialist2">Specialist 2</option>
+						<option value="specialist3">Specialist 3</option>
+					</select>
+				</td>
 
 				<td>
 					<label for="serialNo">Serial Number</label><br>
@@ -240,10 +259,21 @@
 							<label for="dateCompleted">Date Completed</label><br>
 							<input type="text" id="dateCompleted2">
 						</td>
-						<td><input type="text" name="callerName" id="callerName2"></td>
+						<td>
+							<label for="callerName2">Caller Name</label><br>
+							<input type="text" name="callerName2" id="callerName2"><br>
+							<label for="callerNumber2">Caller Number</label>
+							<input type="text" name="callerNumber2" id="callerNumber2">
+						</td>
 						<td><input type="text" name="reqType" id="reqType2"></td>
 						<td><textarea name="reqDetail" id="reqDetail2" rows="5"></textarea></td>
-		
+						<td>
+							<select name="specialistAssigned2" id="specialistAssigned2">
+								<option value="specialist1">Specialist 1</option>
+								<option value="specialist2">Specialist 2</option>
+								<option value="specialist3">Specialist 3</option>
+							</select>
+						</td>
 						<td>
 							<label for="serialNo">Serial Number</label>
 							<input type="text" name="serialNo" id="serialNo2"><br>
@@ -300,10 +330,21 @@
 					<label for="dateCompleted">Date Completed</label><br>
 					<input type="text" id="dateCompleted3">
 				</td>
-				<td><input type="text" name="callerName" id="callerName3"></td>
+				<td>
+					<label for="callerName3">Caller Name</label><br>
+					<input type="text" name="callerName3" id="callerName3"><br>
+					<label for="callerNumber">Caller Number</label>
+					<input type="text" name="callerNumber3" id="callerNumber3">
+				</td>
 				<td><input type="text" name="reqType" id="reqType3"></td>
 				<td><textarea name="reqDetail" id="reqDetail3" rows="5"></textarea></td>
-
+				<td>
+				<select name="specialistAssigned3" id="specialistAssigned3">
+					<option value="specialist1">Specialist 1</option>
+					<option value="specialist2">Specialist 2</option>
+					<option value="specialist3">Specialist 3</option>
+				</select>
+				</td>
 				<td>
 					<label for="serialNo">Serial Number</label>
 					<input type="text" name="serialNo" id="serialNo3"><br>
