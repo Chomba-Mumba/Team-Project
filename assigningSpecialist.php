@@ -62,10 +62,13 @@ $extraSpecialisms = [
 $specialistNames = array_keys($specialists);
 $currentMin = INF;
 $recommended = " ";
+echo "<div class=\"container\" style=\"margin-bottom: 5px;\"> ";
+echo "<header>Specialist Availability</header><br>";
+echo "<div class=\"title\">Number Of Tasks Queued Per Specialist:</div>";
 foreach( $specialistNames as $name){
 	if ($specialists[$name] == $problemType || $extraSpecialisms[$name] == $problemType) {
 		$selectedSpecialistTaskCounts[$name]= $queuedTasks[$name];
-		//echo $name ." -     -  ". $queuedTasks[$name] . "<br>";
+		echo $name ." - ". $queuedTasks[$name] . "<br>";
 
 		//find recommended specialist
 		if ($queuedTasks[$name] < $currentMin) {
@@ -75,6 +78,7 @@ foreach( $specialistNames as $name){
 	}
 }
 echo "Recommended Specialist: ". $recommended;
+echo "</div>";
 ?> 
 
 

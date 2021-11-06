@@ -17,7 +17,11 @@
         $("#problemType").on('change', function(){
           var problemType1 = $("#problemType").val();
           $.post('assigningSpecialist.php',{ProblemType: problemType1}, function(response){
+            $("#specialist").empty();
             $("#specialist").append(response);
+            $('html, body').animate({
+              scrollTop: 3000
+            }, 1000);
 
           })
         });
@@ -27,14 +31,14 @@
   </head>
   <body>
   <div id="topBar">
-    <a style="margin-left: 10px;"id="total_med">Login Screen</a>
+    <a style="margin-left: 10px;"id="total_med" href="group tickets.html">Group Tickets</a>
     <a id="viewLogs" href="my tickets.html">View Logs</a>
-    <a id="placeholder1">Placeholder</a>
+    <a id="placeholder1" href="consent.html">Consent</a>
     <a id="placeholder2">Placeholder</a>
     <a style="margin-left: 690px;" href=""> Sign Out</a>
   </div>
   <br>
-    <div class="container">
+    <div class="container" style="float: left; margin-bottom:10px;">
       <header>Log Fault</header>
       <div class="progress-bar">
         <div class="step">
@@ -159,8 +163,7 @@
               <div class="label">Specialist Name</div>
               <input type="text">
             </div>
-            <div id="specialist" style="text-align: left;">
-            </div>
+
             <div class="field btns">
               <button class="prev-3 prev">Previous</button>
               <button class="submit">Submit</button>
@@ -168,6 +171,9 @@
           </div>
         </form>
       </div>
+    </div>
+    <br><br>
+    <div id="specialist">
     </div>
     <script src="script.js"></script>
     <br>
