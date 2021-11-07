@@ -21,7 +21,115 @@
 				$("#status").val("assigned");
 				$("#priority").val("medium");
 				$("#alertStage").val("assigned")
-			})
+
+				$("#ticketNo2").val("2");
+				$("#initialDate2").val("02/10/2021");
+				$("#lastUpdated2").val("14/10/2021");
+				$("#dateCompleted2").val("N/A");
+				$("#callerName2").val("Joe Bloggs");
+				$("#callerNumber2").val("01927359741")
+				$("#specialistAssigned3").val("specialist1");
+				$("#specialistAssigned4").val("specialist3");
+				$("#reqType2").val("Design Software");
+				$("#reqDetail2").val("Licensing issues");
+				$("#serialNo2").val("RM2_30");
+				$("#equipmentType2").val("PC");
+				$("#makeOfEquipment2").val("intel");
+				$("#latestNotes2").val("Error Message displays \"Error: licence is expired, please contact your system administrator\"");
+				$("#status2").val("pending");
+				$("#priority2").val("high");
+				$("#alertStage2").val("not_completed");
+
+				$("#ticketNo3").val("3");
+				$("#initialDate3").val("06/11/2021");
+				$("#lastUpdated3").val("07/11/2021");
+				$("#dateCompleted3").val("N/A");
+				$("#callerName3").val("Tracey Jones");
+				$("#callerNumber3").val("01927897451");
+				$("#specialistAssigned5").val("specialist1");
+				$("#specialistAssigned6").val("specialist3");
+				$("#reqType3").val("Monitor Hardware");
+				$("#reqDetail3").val("Monitor will cut out for around 3 seconds then return to operation at random intervals");
+				$("#serialNo3").val("389103");
+				$("#equipmentType3").val("Monitor");
+				$("#makeOfEquipment3").val("asus");
+				$("#latestNotes3").val("Replacement monitor issued to caller");
+				$("#status3").val("pending");
+				$("#priority3").val("low");
+				$("#alertStage3").val("not_completed");
+
+				$("a").hover(function(){
+					$(this).css("background-color","#821d52");
+				},
+				function(){
+					$(this).css("background-color","#d43f8d");
+				});
+
+
+				})
+
+
+		function searchTickets(){
+			let searchTerm = $("#searchTerm").val();
+			let searchType = $("#searchType").val();
+			if (searchType == "Ticket Number"){
+				if($("#ticketNo").val() == searchTerm){
+					$("#row2").hide();
+					$("#row3").hide();
+				}else if($("#ticketNo2").val()==searchTerm){
+					$("#row1").hide();
+					$("#row3").hide();		
+				}else if($("#ticketNo3").val()==searchTerm){
+					$("#row1").hide();
+					$("#row2").hide();
+				}else{
+					alert("No ticket found");
+				}
+
+			}else if(searchType == "Request Type"){
+				if($("#reqType").val() == searchTerm){
+					$("#row2").hide();
+					$("#row3").hide();
+				}else if($("#reqType2").val() == searchTerm){
+					$("#row1").hide();
+					$("#row3").hide();
+				}else if($("#reqType3").val() == searchTerm){
+					$("#row1").hide();
+					$("#row2").hide();
+				}
+			}else if(searchType =="Serial Number"){
+				if($("#serialNo").val() == searchTerm){
+					$("#row2").hide();
+					$("#row3").hide();
+				}else if($("#serialNo2").val() == searchTerm){
+					$("#row1").hide();
+					$("#row3").hide();
+				}else if($("#serialNo3").val() == searchTerm){
+					$("#row1").hide();
+					$("#row2").hide();
+				}
+			}
+		}
+
+		function resetTickets(){
+			$("#row1").show();
+			$("#row2").show();
+			$("#row3").show();
+		}
+
+		function submitChanges(){
+			var ticketNo = document.getElementById("ticketNo").value;
+			var lastUpdated = document.getElementById("lastUpdated").value;
+			var reqType = document.getElementById("reqType").value;
+			var reqDetail = document.getElementById("reqDetail").value;
+			var serialNo = document.getElementById("serialNo").value;
+			var equipmentType = document.getElementById("equipmentType").value;
+			var makeOfEquipment = document.getElementById("makeOfEquipment").value;
+			var latestNotes = document.getElementById("latestNotes").value;
+			var status = document.getElementById("status").value;
+			var priority = document.getElementById("priority").value;
+			var alertStage = document.getElementById("alertStage").value;
+		}
 		</script>
 	</head>
 
@@ -35,6 +143,15 @@
 		</div>
 		<div id="inner Body" style="margin-left: 30px; margin-right: 30px;">
 			<h1>Group Tickets</h1>
+			<br><br>
+			<button id="searchBtn" onclick="searchTickets()">Search</button>
+			<button id="resetBtn" onclick="resetTickets()">Reset</button>
+			<select name ="searchType" id="searchType">
+				<option id="ticketNoSearch">Ticket Number</option>
+				<option id="reqTypeSearch">Request Type</option>
+				<option id="serialNumberSearch">Serial Number</option>
+			</select>
+			<input style="text-align: left;"type="text" id="searchTerm" placeholder="Search Tickets"><br>
 			<table cellspacing="0">
 				<!--Table Headings-->
 				<tr>
@@ -49,10 +166,11 @@
 					<th>Status</th>
 					<th>Priority</th>
 					<th>Alert Stage</th>
+					<th>Solution</th>
 				</tr>
 
 				<!--Table content-->
-				<tr>
+				<tr id="row1">
 					<td style="border-top-left-radius: 5px; border-bottom-left-radius: 5px;"><input type="text" name="ticketNo" id="ticketNo"></td>
 					<td>
 						<label for="initialDate">Initial Date</label><br>
@@ -123,7 +241,160 @@
 						<option value="completed">Completed</option>
 					</select>
 					</td>
+					<td style="border-top-left-radius: 5px; border-bottom-left-radius: 5px;"><textarea id="solution" rows="5"></textarea></td>
 				</tr>
+				<!--Table content-->
+					<tr id="row2">
+						<td style="border-top-left-radius: 5px; border-bottom-left-radius: 5px;"><input type="text" name="ticketNo" id="ticketNo2"></td>
+						<td>
+							<label for="initialDate2">Initial Date</label><br>
+							<input type="text" name="initialDate2" id="initialDate2"><br>
+							<label for="lastUpdated">Last Updated</label><br>
+							<input type="text" name="lastUpdated" id="lastUpdated2"><br>
+							<label for="dateCompleted">Date Completed</label><br>
+							<input type="text" id="dateCompleted2">
+						</td>
+						<td>
+							<label for="callerName2">Caller Name</label><br>
+							<input type="text" name="callerName2" id="callerName2"><br>
+							<label for="callerNumber2">Caller Number</label>
+							<input type="text" name="callerNumber2" id="callerNumber2">
+						</td>
+						<td>
+							<select name="specialistAssigned3" id="specialistAssigned3">
+								<option value="specialist1">Specialist 1</option>
+								<option value="specialist2">Specialist 2</option>
+								<option value="specialist3">Specialist 3</option>
+							</select>
+							<select name="specialistAssigned4" id="specialistAssigned4">
+								<option value="specialist1">Specialist 1</option>
+								<option value="specialist2">Specialist 2</option>
+								<option value="specialist3">Specialist 3</option>
+							</select>
+						</td>
+						<td><input type="text" name="reqType" id="reqType2"></td>
+						<td><textarea name="reqDetail" id="reqDetail2" rows="5"></textarea></td>
+						<td>
+							<label for="serialNo">Serial Number</label>
+							<input type="text" name="serialNo" id="serialNo2"><br>
+							<label for="equipmentType">Equipment Type</label>
+							<input type="text" name="equipmentType" id="equipmentType2"><br>
+							<label for="makeOfEquipment">Make Of Equipment</label>
+							<select name="makeOfEquipment" id="makeOfEquipment2">
+								<option value="notApplicable">N/A</option>
+								<option value="hp">HP</option>
+								<option value="dell">Dell</option>
+								<option value="intel">Intel</option>
+								<option value="asus">Asus</option>
+							</select>
+						</td>
+						<td><textarea name="latestNotes" id="latestNotes2" rows="5"></textarea></td>
+		
+						<td>
+						<select name="status" id="status2"><!--We will need php to save and update the details-->
+		
+							<option value="pending">Pending</option>
+							<option value="assigned">Assigned</option>
+							<option value="resolved">Resolved</option>
+		
+						</select>
+						</td>
+		
+						<td>
+						<select name="priority" id="priority2">
+							<option value="low">Low</option>
+							<option value="medium">Medium</option>
+							<option value="high">High</option>
+						</select>
+						</td>	
+		
+						<td>
+						<select name="alertStage" id="alertStage2">
+							<option value="not_completed">Not Completed</option>
+							<option value="assigned">Assigned</option>
+							<option value="completed">Completed</option>
+						</select>
+						</td>
+						<td style="border-top-left-radius: 5px; border-bottom-left-radius: 5px;"><textarea id="solution2" rows="5"></textarea></td>
+
+					</tr>
+
+					<!--Table content-->
+			<tr id="row3">
+				<td style="border-top-left-radius: 5px; border-bottom-left-radius: 5px;"><input type="text" name="ticketNo" id="ticketNo3"></td>
+				<td>
+					<label for="initialDate3">Initial Date</label><br>
+					<input type="text" name="initialDate" id="initialDate3"><br>
+					<label for="lastUpdated">Last Updated</label><br>
+					<input type="text" name="lastUpdated" id="lastUpdated3"><br>
+					<label for="dateCompleted">Date Completed</label><br>
+					<input type="text" id="dateCompleted3">
+				</td>
+				<td>
+					<label for="callerName3">Caller Name</label><br>
+					<input type="text" name="callerName3" id="callerName3"><br>
+					<label for="callerNumber">Caller Number</label>
+					<input type="text" name="callerNumber3" id="callerNumber3">
+				</td>
+				<td>
+					<select name="specialistAssigned5" id="specialistAssigned5">
+						<option value="specialist1">Specialist 1</option>
+						<option value="specialist2">Specialist 2</option>
+						<option value="specialist3">Specialist 3</option>
+					</select>
+					<select name="specialistAssigned6" id="specialistAssigned6">
+						<option value="specialist1">Specialist 1</option>
+						<option value="specialist2">Specialist 2</option>
+						<option value="specialist3">Specialist 3</option>
+					</select>
+				</td>
+				<td><input type="text" name="reqType" id="reqType3"></td>
+				<td><textarea name="reqDetail" id="reqDetail3" rows="5"></textarea></td>
+				<td>
+					<label for="serialNo">Serial Number</label>
+					<input type="text" name="serialNo" id="serialNo3"><br>
+					<label for="equipmentType">Equipment Type</label>
+					<input type="text" name="equipmentType" id="equipmentType3"><br>
+					<label for="makeOfEquipment">Make Of Equipment</label>
+					<select name="makeOfEquipment" id="makeOfEquipment3">
+						<option value="notApplicable">N/A</option>
+						<option value="hp">HP</option>
+						<option value="dell">Dell</option>
+						<option value="intel">Intel</option>
+						<option value="asus">Asus</option>
+					</select>
+				</td>
+				<td><textarea name="latestNotes" id="latestNotes3" rows="5"></textarea></td>
+
+				<td>
+				<select name="status" id="status3"><!--We will need php to save and update the details-->
+
+					<option value="pending">Pending</option>
+					<option value="assigned">Assigned</option>
+					<option value="resolved">Resolved</option>
+
+				</select>
+				</td>
+
+				<td>
+				<select name="priority" id="priority3">
+					<option value="low">Low</option>
+					<option value="medium">Medium</option>
+					<option value="high">High</option>
+				</select>
+				</td>	
+
+				<td>
+				<select name="alertStage" id="alertStage3">
+					<option value="not_completed">Not Completed</option>
+					<option value="assigned">Assigned</option>
+					<option value="completed">Completed</option>
+				</select>
+				</td>
+				<td style="border-top-left-radius: 5px; border-bottom-left-radius: 5px;"><textarea id="solution3" rows="5"></textarea></td>
+
+			</tr>
+		</table>
 			</table>
 			<br>
 			<button type="button" name="submit" id="submitChanges">Submit Changes</button>
