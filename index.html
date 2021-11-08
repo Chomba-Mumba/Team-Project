@@ -15,15 +15,18 @@
             $(this).css("background-color","#d43f8d");
         });
         $("#problemType").on('change', function(){
-          var problemType1 = $("#problemType").val();
-          $.post('assigningSpecialist.php',{ProblemType: problemType1}, function(response){
-            $("#specialist").empty();
-            $("#specialist").append(response);
-            $('html, body').animate({
-              scrollTop: 3000
-            }, 1000);
+          $("#specialist").empty();
+          if ($("#problemType").val()!="Default"){
+            var problemType1 = $("#problemType").val();
+            $.post('assigningSpecialist.php',{ProblemType: problemType1}, function(response){
+              
+              $("#specialist").append(response);
+              $('html, body').animate({
+                scrollTop: 3000
+              }, 1000);
 
-          })
+            })
+        }
         });
     });
 
@@ -38,7 +41,7 @@
     <a style="margin-left: 690px;" href="LoginPage.html"> Sign Out</a>
   </div>
   <br>
-    <div class="container" style="float: left; margin-bottom:10px;">
+    <div class="container" style="margin-bottom: 15px;">
       <header>Log Fault</header>
       <div class="progress-bar">
         <div class="step">
@@ -173,8 +176,7 @@
         </form>
       </div>
     </div>
-    <br><br>
-    <div id="specialist">
+    <div id="specialist" >
     </div>
     <script src="script.js"></script>
     <br>
